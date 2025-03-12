@@ -16,4 +16,11 @@ defmodule Rumbl.Accounts do
   Find user by arbitrary parameters
   """
   def get_by(params), do: Repo.get_by(User, params)
+
+  @doc """
+  Create user action
+  """
+  def create_user(attrs \\ %{}) do
+    %User{} |> User.changeset(attrs) |> Repo.insert()
+  end
 end
