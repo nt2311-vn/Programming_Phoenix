@@ -1,27 +1,19 @@
 defmodule Rumbl.Accounts do
   alias Rumbl.Accounts.User
-
-  @users [
-    %User{id: "1", name: "José", username: "josevalim", password: "elixir"},
-    %User{id: "2", name: "Bruce", username: "redrapids", password: "7langs"},
-    %User{id: "3", name: "Chris", username: "chrismccord", password: "phx"}
-  ]
+  alias Rumbl.Repo
 
   @doc """
   Return all users
   """
-  def list_users, do: @users
+  def list_users, do: Repo.all(User)
 
   @doc """
   Find a user by Id
   """
-  def get_user(id), do: list_users() |> Enum.find(&(&1.id == id))
+  def get_user(id), do: Repo.get(User, id)
 
   @doc """
   Find user by arbitrary parameters
   """
-  def get_by(params) do
-    list_users()
-    |> Enum.find(fn user -> Enum.all?(params, fn {key, val} -> Map.get(user, key) == val end) end)
-  end
+  def get_by(params), do: Repo.get_by(User, params)
 end
