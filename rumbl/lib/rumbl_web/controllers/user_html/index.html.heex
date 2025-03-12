@@ -2,7 +2,7 @@
 <table class="table">
   <%= for user <- @users do %>
     <tr>
-      <td><b>(<%= user.name %>) (<%= user.id %>)</b></td>
+      <td><%= render(RumblWeb.UserHTML, :show, user: user) %></td>
       <td><.link navigate={~p"/users/#{user.id}"}>View</.link></td>
     </tr>
   <% end %>
