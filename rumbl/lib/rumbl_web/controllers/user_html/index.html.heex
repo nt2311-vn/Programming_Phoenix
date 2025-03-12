@@ -3,7 +3,7 @@
   <%= for user <- @users do %>
     <tr>
       <td><.user_show user={user} /></td>
-      <td><.link navigate={~p"/users/#{user.id}"}>View</.link></td>
+      <td><a href={~p"/users/#{user.id}"}>View</a></td>
     </tr>
   <% end %>
 </table>
