@@ -1,6 +1,7 @@
 defmodule PentoWeb.Router do
-  alias PentoWeb.PageLive
   use PentoWeb, :router
+
+  import Phoenix.LiveView.Router
 
   pipeline :browser do
     plug(:accepts, ["html"])
