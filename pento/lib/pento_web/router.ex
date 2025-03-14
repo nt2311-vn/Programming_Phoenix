@@ -22,6 +22,7 @@ defmodule PentoWeb.Router do
     get("/", PageController, :home)
 
     live("/live", PageLive, :index)
+    live("/guess", WrongeLive, :index)
   end
 
   # Other scopes may use custom stacks.
