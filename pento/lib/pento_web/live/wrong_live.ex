@@ -34,7 +34,7 @@ defmodule PentoWeb.WrongLive do
   def handle_event("guess", %{"number" => guess_str}, socket) do
     guess = guess_str |> String.to_integer()
     answer = socket.assigns.answer
-    score = socket.assgins.score
+    score = socket.assigns.score
 
     if guess == answer do
       new_answer = Enum.random(1..10)
@@ -51,7 +51,7 @@ defmodule PentoWeb.WrongLive do
 
       {:noreply,
        assign(socket,
-         message: "Wrong! Your guest number was #{answer}, try again!",
+         message: "Wrong! Your guest number was #{guess}, try again!",
          score: new_score,
          time: time()
        )}
