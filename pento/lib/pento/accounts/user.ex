@@ -3,11 +3,12 @@ defmodule Pento.Accounts.User do
   import Ecto.Changeset
 
   schema "users" do
-    field :email, :string
-    field :password, :string, virtual: true, redact: true
-    field :hashed_password, :string, redact: true
-    field :current_password, :string, virtual: true, redact: true
-    field :confirmed_at, :utc_datetime
+    field(:email, :string)
+    field(:username, :string)
+    field(:password, :string, virtual: true, redact: true)
+    field(:hashed_password, :string, redact: true)
+    field(:current_password, :string, virtual: true, redact: true)
+    field(:confirmed_at, :utc_datetime)
 
     timestamps(type: :utc_datetime)
   end
