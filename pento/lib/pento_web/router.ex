@@ -20,13 +20,14 @@ defmodule PentoWeb.Router do
   end
 
   scope "/", PentoWeb do
-    pipe_through(:browser)
+    pipe_through([:browser, :redirect_if_user_is_authenticated])
 
     get("/", PageController, :home)
 
     pipe_through(:require_authenticated_user)
-
     live("/live", PageLive, :index)
+
+    pipe_through(:redirect_if_user_is_authenticated)
     live("/guess", WrongLive, :index)
   end
 
