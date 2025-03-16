@@ -21,7 +21,7 @@ defmodule HelloSocketsWeb.PingChannel do
     {:stop, :shutdown, {:ok, %{msg: "shutting down"}}, socket}
   end
 
-  intercept("request_ping")
+  intercept(["request_ping"])
 
   def handle_out("request_ping", payload, socket) do
     push(socket, "send_ping", Map.put(payload, "from_node", Node.self()))
