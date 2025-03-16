@@ -1,7 +1,7 @@
 defmodule HelloSocketsWeb.WildcardChannel do
   use Phoenix.Channel
 
-  def join("wild" <> numbers, _payload, socket) do
+  def join("wild:" <> numbers, _payload, socket) do
     if numbers_correct?(numbers) do
       {:ok, socket}
     else
