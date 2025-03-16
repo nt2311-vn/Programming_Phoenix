@@ -1,7 +1,7 @@
 defmodule HelloSocketsWeb.UserSocket do
   use Phoenix.Socket
 
-  channel("ping:*", HelloSocketsWeb.PingChanel)
+  channel("ping", HelloSocketsWeb.PingChannel)
   channel("wild:*", HelloSocketsWeb.WildcardChannel)
 
   def connect(_params, socket, _connect_info) do
