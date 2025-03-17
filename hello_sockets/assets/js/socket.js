@@ -8,6 +8,7 @@ export default socket;
 
 const channel = socket.channel("ping")
 
+
 channel.join()
   .receive("ok", resp => console.log("Joined ping", resp))
   .receive("error", resp => console.log("Unable to join ping", resp))
@@ -28,3 +29,10 @@ channel.push("param_ping", {error: true})
 
 channel.push("param_ping", {error: false, arr: [1,2]})
   .receive("ok", resp => console.log("param_ping ok:", resp))
+
+channel.on("send_ping", (payload) => {
+  console.log("ping requested", payload)
+  channel.push("ping")
+    .receive("ok", (resp) => {console.log("ping:", resp.ping)})
+})
+
