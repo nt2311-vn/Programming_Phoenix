@@ -21,3 +21,10 @@ channel.push("pong")
   .receive("ok", resp => console.log("won't happen"))
   .receive("error", resp => console.error("won't happen yet"))
   .receive("timeout", resp => console.error("pong message timeout", resp))
+
+
+channel.push("param_ping", {error: true})
+  .receive("error", (resp) => console.error("param_ping error:", resp))
+
+channel.push("param_ping", {error: false, arr: [1,2]})
+  .receive("ok", resp => console.log("param_ping ok:", resp))
