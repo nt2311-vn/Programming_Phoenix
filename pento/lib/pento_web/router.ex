@@ -76,6 +76,8 @@ defmodule PentoWeb.Router do
     live("/products/:id", ProductLive.Show, :show)
     live("/products/:id/show/edit", ProductLive.Show, :edit)
 
+    live("/admin-dashboard", AdminDashboardLive, :index)
+
     live_session :require_authenticated_user,
       on_mount: [{PentoWeb.UserAuth, :ensure_authenticated}] do
       live("/users/settings", UserSettingsLive, :edit)
