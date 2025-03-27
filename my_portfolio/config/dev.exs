@@ -1,11 +1,13 @@
 import Config
 
+Dotenvy.load!()
+
 # Configure your database
 config :my_portfolio, MyPortfolio.Repo,
-  username: "postgres",
-  password: "postgres",
-  hostname: "localhost",
-  database: "my_portfolio_dev",
+  username: System.get_env("DATABASE_USER"),
+  password: System.get_env("DATABASE_PASSWORD"),
+  hostname: System.get_env("DATABASE_HOST"),
+  database: System.get_env("DATABASE_NAME"),
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
