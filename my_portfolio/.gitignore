@@ -35,5 +35,10 @@ my_portfolio-*.tar
 npm-debug.log
 /assets/node_modules/
 
-elixir-tools/
+# Ignore lsp log output
+.elixir-tools/
+.elixir_ls
+
+# Ignore .env file
+.env
 elixir_LS/
