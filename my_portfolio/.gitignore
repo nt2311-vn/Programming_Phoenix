@@ -35,3 +35,5 @@ my_portfolio-*.tar
 npm-debug.log
 /assets/node_modules/
 
+elixir-tools/
+elixir_LS/
