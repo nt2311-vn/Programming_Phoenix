@@ -1,12 +1,11 @@
 import Config
-import Dotenvy
 
 # Configure your database
 config :my_portfolio, MyPortfolio.Repo,
-  username: env!("DATABASE_USER", :string),
-  password: env!("DATABASE_PASSWORD", :string),
-  hostname: env!("DATABASE_HOST", :string),
-  database: env!("DATABASE_NAME", :string),
+  username: System.get_env("DATABASE_USER"),
+  password: System.get_env("DATABASE_PASSWORD"),
+  hostname: System.get_env("DATABASE_HOST"),
+  database: System.get_env("DATABASE_NAME"),
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
