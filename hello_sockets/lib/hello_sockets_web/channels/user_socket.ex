@@ -8,7 +8,7 @@ defmodule HelloSocketsWeb.UserSocket do
 
   ## Channels
 
-  channel("ping:*", HelloSocketsWeb.RoomChannel)
+  channel("ping:*", HelloSocketsWeb.PingChannel)
 
   # Socket params are passed from the client and can
   # be used to verify and authenticate a user. After
