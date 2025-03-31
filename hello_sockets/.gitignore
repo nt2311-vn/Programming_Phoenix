@@ -37,6 +37,6 @@ npm-debug.log
 
 # Ignore lsp output and crash dump file
 erl_crash.dump
-elixir-tools/
-elixir_ls/
+.elixir-tools/
+.elixir_ls/
 
