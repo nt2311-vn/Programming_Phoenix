@@ -1,8 +1,8 @@
-defmodule HelloSocketsWeb.RoomChannel do
+defmodule HelloSocketsWeb.PingChannel do
   use HelloSocketsWeb, :channel
 
   @impl true
-  def join("room:lobby", payload, socket) do
+  def join(_topic, payload, socket) do
     if authorized?(payload) do
       {:ok, socket}
     else
@@ -14,7 +14,7 @@ defmodule HelloSocketsWeb.RoomChannel do
   # by sending replies to requests from the client
   @impl true
   def handle_in("ping", payload, socket) do
-    {:reply, {:ok, payload}, socket}
+    {:reply, {:ok, %{ping: "pong"}}, socket}
   end
 
   # It is also common to receive messages from the client and
