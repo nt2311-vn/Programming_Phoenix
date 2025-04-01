@@ -1,1 +1,3 @@
 erl_crash.dump
+.elixir-tools/
+.elixir_ls/
