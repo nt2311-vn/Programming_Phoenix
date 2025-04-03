@@ -56,8 +56,8 @@ defmodule ShopWeb.Endpoint do
   plug(:check_promo_code)
   plug(ShopWeb.Router)
 
-  def check_promo_code(conn, _opts) do
-    IO.inspect("check promocode is working")
+  def check_promo_code(%Plug.Conn{} = conn, _opts) do
+    IO.inspect(conn.params)
     conn
   end
 end
