@@ -1,9 +1,22 @@
 defmodule ShopWeb.Plugs.SetConsole do
-  def init(opts), do: opts
+  import Plug.Conn
 
-  def call(%Plug.Conn{} = conn, opts) do
-    IO.inspect("Module plug is working")
-    IO.inspect("Opts: " <> opts)
+  def init(default_console), do: default_console
+
+  def call(
+        %Plug.Conn{
+          :params => %{
+            "console" => console
+          }
+        } = conn,
+        _opts
+      ) do
     conn
+    |> assign(:console, console)
+    |> put_resp_cookie("console", console, max_age: :timer.hours(24) * 30)
+  end
+
+  def call(%Plug.Conn{} = conn, default_console) do
+    conn |> assign(:console, default_console)
   end
 end
