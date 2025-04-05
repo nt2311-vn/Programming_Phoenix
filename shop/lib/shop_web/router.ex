@@ -22,10 +22,12 @@ defmodule ShopWeb.Router do
 
     get("/", PageController, :home)
 
-    # get("/products", ProductController, :index)
-    # get("/products/:id", ProductController, :show)
+    get("/products", ProductController, :index)
+    get("/products/:id", ProductController, :show)
 
-    resources("/products", ProductController, only: [:index, :show])
+    resources "/users", UserController do
+      get("/posts", PostController, :index)
+    end
   end
 
   # Other scopes may use custom stacks.
