@@ -28,6 +28,7 @@ defmodule ShopWeb.Router do
 
     get("/products", ProductController, :index)
     get("/products/:id", ProductController, :show)
+    get("/products/random", ProductController, :random)
   end
 
   # Other scopes may use custom stacks.
@@ -37,7 +38,6 @@ defmodule ShopWeb.Router do
 
   scope "/dashboard", ShopWeb do
     pipe_through([:browser, :auth])
-    get("/", DashboardController, :index)
   end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development

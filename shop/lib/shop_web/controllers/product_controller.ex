@@ -8,4 +8,8 @@ defmodule ShopWeb.ProductController do
   def show(conn, %{"id" => id}) do
     render(conn, :show, id: id)
   end
+
+  def random(conn, _params) do
+    conn |> text("This is some text!")
+  end
 end
