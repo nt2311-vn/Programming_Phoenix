@@ -1,5 +1,3 @@
-<h1>This is the product listing page!</h1>
+<h1 :if={@promo}>You have a promotional code!</h1>
 
-<p :if={@promo}>You have a promotional code!</p>
-
-<a href={~p"/?#{[console: "xbox", admin: true]}"}>Go back to home page</a>
+ <.product :for={product <- @products} name={product.name} id={product.id}/>
