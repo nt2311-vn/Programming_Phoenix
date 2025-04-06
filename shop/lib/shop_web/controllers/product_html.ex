@@ -8,8 +8,8 @@ defmodule ShopWeb.ProductHTML do
 
   def product(assigns) do
     ~H"""
-    <h1>Game <%= @name %></h1>
-    <p>Product id <%= @id %></p>
+    <h1>Game {@name}</h1>
+    <p>Product id {@id}</p>
     """
   end
 end
