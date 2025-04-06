@@ -23,7 +23,7 @@ defmodule ShopWeb.Router do
     get("/", PageController, :home)
 
     get("/products", ProductController, :index)
-    get("/products/random", ProductController, :random)
+    get("/random", RandomController, :random)
     get("/products/:id", ProductController, :show)
   end
 
