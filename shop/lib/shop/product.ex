@@ -3,9 +3,9 @@ defmodule Shop.Product do
   import Ecto.Changeset
 
   schema "products" do
-    field :name, :string
-    field :console, Ecto.Enum, values: [:pc, :xbox, :nintendo, :playstation]
-    field :slug, :string
+    field(:name, :string)
+    field(:console, Ecto.Enum, values: [:pc, :xbox, :nintendo, :playstation])
+    field(:slug, :string)
 
     timestamps(type: :utc_datetime)
   end
@@ -13,8 +13,9 @@ defmodule Shop.Product do
   @doc false
   def changeset(product, attrs) do
     product
-    |> cast(attrs, [:name, :slug, :console])
-    |> validate_required([:name, :slug, :console])
+    |> cast(attrs, [:name, :console])
+    |> validate_required([:name, :console])
+    |> validate_length(:name, min: 3)
     |> unique_constraint(:slug)
   end
 end
