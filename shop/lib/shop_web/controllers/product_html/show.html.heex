@@ -1,3 +1,1 @@
-<%= if(@product) do %>
-<.product name={@product.name} id={@product.id} />
-<% end %>
+<.product :if={@product != nil} name={@product.name} id={@product.id} />
