@@ -17,18 +17,14 @@ defmodule ShopWeb.Router do
     plug(:accepts, ["json"])
   end
 
-  pipeline :auth do
-    plug(Plugs.EnsureAuthenticated)
-  end
-
   scope "/", ShopWeb do
     pipe_through(:browser)
 
     get("/", PageController, :home)
 
     get("/products", ProductController, :index)
-    get("/products/:id", ProductController, :show)
     get("/products/random", ProductController, :random)
+    get("/products/:id", ProductController, :show)
   end
 
   # Other scopes may use custom stacks.
@@ -37,7 +33,7 @@ defmodule ShopWeb.Router do
   # end
 
   scope "/dashboard", ShopWeb do
-    pipe_through([:browser, :auth])
+    pipe_through([:browser])
   end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
