@@ -16,6 +16,22 @@ defmodule Shop.Product do
     |> cast(attrs, [:name, :console])
     |> validate_required([:name, :console])
     |> validate_length(:name, min: 3)
+    |> format_name()
+    |> generate_slug()
     |> unique_constraint(:slug)
+  end
+
+  defp format_name(changeset) do
+    name =
+      changeset.changes.name
+      |> String.trim()
+
+    put_change(changeset, :name, name)
+  end
+
+  defp generate_slug(changeset) do
+    slug = changeset.changes.name |> String.downcase() |> String.replace(" ", "-")
+
+    put_change(changeset, :slug, slug)
   end
 end
