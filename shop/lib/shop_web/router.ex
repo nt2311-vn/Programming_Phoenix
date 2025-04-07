@@ -24,7 +24,7 @@ defmodule ShopWeb.Router do
 
     get("/products", ProductController, :index)
     get("/random", RandomController, :random)
-    get("/products/:id", ProductController, :show)
+    get("/products/:slug", ProductController, :show)
   end
 
   # Other scopes may use custom stacks.
